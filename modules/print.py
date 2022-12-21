@@ -34,6 +34,7 @@ def main_menu():
     Displays the main menu to the user.
     """
     
+    clear()
     print("CLI-matic displays weather forecasts for current"
         "location or another location.".center(80))
     print()
@@ -45,4 +46,9 @@ def main_menu():
     print(colored("Type 2 and press ENTER to display the weather forecast"
                 " for a specific location", "yellow").center(80))
 
-greeting()
+def clear():
+    """
+    Cleans terminal to present content more cleanly
+    """
+    
+    os.system("cls" if os.name == "nt" else "clear")
