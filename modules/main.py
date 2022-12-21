@@ -35,7 +35,7 @@ def get_target_location():
             continue
         else:
             break
-    return target_location
+    set_geolocation_url(target_location)
 
 
 def set_geolocation_url(target_location):
@@ -51,7 +51,16 @@ def set_geolocation_url(target_location):
     if target_location == 1:
         geolocation_url = f"https://api.ipdata.co?api-key={IPDATA_API_KEY}"
     elif target_location == 2:
-        geolocation_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{state},{country}&limit=3&appid={OWM_API_KEY}"
+        city = get_target_city_name()
+        geolocation_url = f"http://api.openweathermap.org/geo/1.0/direct?q= \
+                            {city}&limit=3&appid={OWM_API_KEY}"
 
     return geolocation_url
 
+def get_target_city_name():
+    """
+    Gets parameters for target city from user
+    """
+    print("Please enter a city name.".center(80))
+    city = input("".center(40))
+    return city
