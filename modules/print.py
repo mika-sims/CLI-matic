@@ -62,3 +62,13 @@ def blank_lines():
     print()
     print()
     print()
+
+
+def warning_text(text):
+    """
+    Displays red warning text for invalid entries
+
+    Args:
+        text (str): Warning text to be displayed
+    """
+    print(colored(text, "red").center(80))
