@@ -58,7 +58,7 @@ def set_geolocation_url(target_location):
         geolocation_url = f"http://api.openweathermap.org/geo/1.0/direct?q= \
                             {city}&limit=3&appid={OWM_API_KEY}"
 
-    return geolocation_url
+    get_geolocation_data(geolocation_url)
 
 def get_target_city_name():
     """
@@ -68,3 +68,16 @@ def get_target_city_name():
     city = input("".center(40))
     return city
 
+def get_geolocation_data(url):
+    """
+    Returns location coordinates data as a JSON object
+
+    Args:
+        url (str): The URL of the API call to be made for the location
+                    to get the coordinates
+    """
+    geolocation_data = api_call(url)
+    print(geolocation_data)
+
+
+get_target_location()
