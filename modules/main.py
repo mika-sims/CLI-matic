@@ -5,6 +5,9 @@ import json
 from print import main_menu
 from print import warning_text, clear, blank_lines
 
+# Import api_call function from api_call module
+from api_call import api_call
+
 
 # Reads creds file and asigns api keys to variables
 with open("creds.json","r") as credentials:
@@ -64,3 +67,4 @@ def get_target_city_name():
     print("Please enter a city name.".center(80))
     city = input("".center(40))
     return city
+
