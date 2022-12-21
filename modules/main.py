@@ -1,8 +1,12 @@
+# Import json library
+import json
+
+# Import functions from print.py module
 from print import main_menu
 from print import warning_text, clear, blank_lines
 
-import json
 
+# Reads creds file and asigns api keys to variables
 with open("creds.json","r") as credentials:
     api_keys = json.load(credentials)
     IPDATA_API_KEY = api_keys["ipdata_api_key"]
