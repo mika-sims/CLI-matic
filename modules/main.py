@@ -64,8 +64,21 @@ def get_target_city_name():
     """
     Gets parameters for target city from user
     """
-    print("Please enter a city name.".center(80))
-    city = input("".center(40))
+    while True:
+        try:
+            print("Please enter a city name.".center(80))
+            city = input("".center(40))
+        except ValueError:
+            print("Invalid city name!")
+            continue
+        if len(city) == 0:
+            print("City name can't be empty! Please try again.".center(80))
+            continue
+        elif any(char.isdigit() for char in city):
+            print("City name can't contain number. Please try again." \
+                .center(80))
+        else:
+            break
     return city
 
 def get_geolocation_data(url):
