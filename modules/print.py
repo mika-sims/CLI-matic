@@ -15,9 +15,10 @@ def banner():
     banner = pyfiglet.figlet_format("CLI - matic", justify="center")
     print(colored(banner, "yellow"))
 
+
 def greeting():
     """
-    Prints a welcome message to the screen
+    Prints a welcome message to the screen.
     """
     greeting = pyfiglet.figlet_format("WELCOME", justify="center")
     print(colored(greeting, "green"))
@@ -25,3 +26,23 @@ def greeting():
     print("Display weather forecasts for over 200,000 cities".center(80))
     print(colored("Press Enter to start", "green").center(90))
     input("".center(40))
+    main_menu()
+
+
+def main_menu():
+    """
+    Displays the main menu to the user.
+    """
+    
+    print("CLI-matic displays weather forecasts for current"
+        "location or another location.".center(80))
+    print()
+    print()
+    print(colored("Type 1 and press ENTER to display the weather forecast"
+                " for the current location", "yellow").center(80))
+    print()
+    print()
+    print(colored("Type 2 and press ENTER to display the weather forecast"
+                " for a specific location", "yellow").center(80))
+
+greeting()
