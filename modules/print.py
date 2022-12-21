@@ -35,6 +35,7 @@ def main_menu():
     """
     
     clear()
+    blank_lines()
     print("CLI-matic displays weather forecasts for current"
         "location or another location.".center(80))
     print()
@@ -50,5 +51,18 @@ def clear():
     """
     Cleans terminal to present content more cleanly
     """
-    
+
     os.system("cls" if os.name == "nt" else "clear")
+
+def blank_lines():
+    """
+    Prints blank lines to align content to the center of the terminal
+    """
+    print()
+    print()
+    print()
+    print()
+    print()
+
+
+greeting()
