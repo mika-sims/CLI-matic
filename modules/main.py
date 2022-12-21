@@ -13,7 +13,7 @@ from api_call import api_call
 with open("creds.json","r") as credentials:
     api_keys = json.load(credentials)
     IPDATA_API_KEY = api_keys["ipdata_api_key"]
-    OWM_API_KEY = api_keys["ipdata_api_key"]
+    OWM_API_KEY = api_keys["owm_api_key"]
 
 def get_target_location():
     """
