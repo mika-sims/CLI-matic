@@ -18,23 +18,24 @@ def banner():
     print(colored(banner, "yellow"))
 
 
-def main_menu():
+def main_menu(username):
     """
     Displays the main menu to the user.
     """
     
     clear()
     blank_lines()
-    print("CLI-matic displays weather forecasts for current"
-        "location or another location.".center(80))
+    yellow_text(f"Hello again {username}.")
     print()
+    white_text("With CLI-matic you can display the weather forecast")
+    white_text("for your current location or for another location.")
     print()
-    print(colored("Type 1 to display the weather forecast"
-                " for the current location", "yellow").center(80))
+    yellow_text("Please choose an option from the menu below and press ENTER.")
     print()
-    print()
-    print(colored("Type 2 to display the weather forecast"
-                " for a specific location", "yellow").center(80))
+    green_text("For your current location type 1")
+    green_text("For another location type 2")
+    green_text("To exit the application type 3")
+    
 
 def clear():
     """
@@ -89,3 +90,6 @@ def white_text(text):
         text (str): Text to be displayed
     """
     print(colored(text, "white").center(80))
+
+
+main_menu()
