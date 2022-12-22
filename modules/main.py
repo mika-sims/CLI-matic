@@ -77,6 +77,8 @@ def main_menu_user_input():
         user_input = input("".center(35))
         if user_input not in ["1","2","3"]:
             print()
+            clear()
+            blank_lines()
             main_menu()
             print()
             warning_text("Invalid input! Please try again.")
@@ -92,6 +94,7 @@ def main_menu_user_input():
         set_geolocation_url(get_target_location())
     if user_input == "3":
         clear()
+        blank_lines()
         main_menu()
 
 def forecast_menu_user_input():
@@ -118,6 +121,8 @@ def forecast_menu_user_input():
     if forecast_type == 2:
         pass
     if forecast_type == 3:
+        clear()
+        blank_lines()
         main_menu()
 
 
