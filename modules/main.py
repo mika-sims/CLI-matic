@@ -4,9 +4,13 @@ import json
 # Import functions from print.py module
 from print import main_menu
 from print import warning_text, clear, blank_lines, banner, green_text, yellow_text
+from print import yellow_text, white_text
 
 # Import api_call function from api_call module
 from api_call import api_call
+
+# Import cities list from cities module
+from cities import cities_list
 
 
 # Reads creds file and asigns api keys to variables
@@ -36,21 +40,41 @@ def get_user_name():
         else:
             break
 
-    get_user_location(user_name)
+    get_user_location(user_name.title())
 
 def get_user_location(username):
     """
     Gets the current location of the user
     """
-    yellow_text(f"Welcome to the CLI-matic {username}")
-    yellow_text("Before moving on to the next section,")
-    yellow_text("I will ask you for one last piece of information.")
+
+    clear()
+    blank_lines()
+    white_text(f"Welcome to the CLI-matic {username}")
+    print()
+    white_text("Before moving on to the next step,")
+    white_text("I will ask you for one last piece of information.")
+    print()
     yellow_text("Please enter the name of the city you live in.")
-    user_name = input("".center(40)).title()
-    print(user_name)
-    
-    
-get_user_location("Mikail")    
+    print()
+    while True:
+        user_location = input("".center(40)).title()
+        cities = cities_list()
+        if user_location not in cities or len(user_location) < 1 or \
+            user_location.isspace() or user_location == "" or \
+            user_location.isdigit():
+
+            clear()
+            blank_lines()
+            warning_text("There is no data for the city name you entered.")
+            print()
+            yellow_text("Please write the city name in English.")
+            print()
+            continue
+        else:
+            break
+    return user_location
+
+
 
 
 def get_target_location():
