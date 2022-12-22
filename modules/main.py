@@ -82,7 +82,7 @@ def forecast_menu_user_input():
     forecast_type = int(forecast_type)
 
     if forecast_type == 1:
-        set_geolocation_url(get_user_location())
+        set_geolocation_url(get_target_location())
     if forecast_type == 2:
         set_geolocation_url(get_target_location())
     if forecast_type == 3:
