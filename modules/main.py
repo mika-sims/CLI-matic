@@ -90,7 +90,8 @@ def forecast_menu_user_input():
     if forecast_type == 3:
         clear()
         blank_lines()
-        main_menu()
+        banner()
+        main_menu_user_input()
 
 
 def get_target_location():
