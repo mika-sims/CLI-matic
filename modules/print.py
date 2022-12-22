@@ -29,7 +29,7 @@ def greeting():
     white_text(f"Welcome to the CLI-matic.")
     print()
     yellow_text("With CLI-matic you can display the weather forecast")
-    yellow_text("over 200,000 cities")
+    yellow_text("for over 200,000 cities")
     print()
 
 def main_menu():
