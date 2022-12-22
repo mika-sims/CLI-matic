@@ -90,6 +90,3 @@ def white_text(text):
         text (str): Text to be displayed
     """
     print(colored(text, "white").center(80))
-
-
-main_menu()
