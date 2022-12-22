@@ -155,7 +155,7 @@ def geolocation_data(url):
             country = coco.convert(names=option["country"], to="name")
             city_name = option["name"]
             options += f"\n \
-                -Enter {str(i + 1)} for: {city_name},{country}"
+                -Enter {str(i + 1)} for: {city_name}, {country}"
         print(options)
         print()
         
@@ -275,6 +275,8 @@ def display_hourly_weather_forecast(data):
     """
     # Call Weather object
     weather_obj = Weather(data)
+    
+    country = coco.convert(names=weather_obj.sys.country, to="name")
 
     times = ""
     temperatures = ""
@@ -310,7 +312,7 @@ def display_hourly_weather_forecast(data):
     table = Table(
         show_header=True,
         header_style="bold blue",
-        title=f"{city} daily weather forecasts in 3-hour intervals for {day}",
+        title=f"{city}, {country} forecasts in 3-hour intervals for {day}",
     )
 
     table.add_column("Time", justify="center")
