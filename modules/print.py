@@ -29,7 +29,7 @@ def main_menu():
     
     clear()
     blank_lines()
-    yellow_text(f"Welcome to the main menu.")
+    yellow_text(f"Welcome to the CLI-matic.")
     print()
     white_text("With CLI-matic you can display the weather forecast")
     white_text("for your current location or for another location.")
