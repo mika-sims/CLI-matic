@@ -1,5 +1,5 @@
 # Import requests module and exceptions from api_call module
-from api_call import requests, HTTPError, ConnectionError
+from modules.api_call import requests, HTTPError, ConnectionError
 
 # Import gzip library to decompress gzip files
 import gzip

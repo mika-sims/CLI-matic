@@ -12,15 +12,15 @@ from rich.table import Table
 from datetime import datetime
 
 # Import functions from print.py module
-from print import main_menu, forecast_menu, exit
-from print import warning_text, clear, blank_lines, banner, green_text
-from print import yellow_text, white_text
+from modules.print import main_menu, forecast_menu, exit
+from modules.print import warning_text, clear, blank_lines, banner, green_text
+from modules.print import yellow_text, white_text
 
 # Import api_call function from api_call module
-from api_call import api_call
+from modules.api_call import api_call
 
 # Import cities list from cities module
-from cities import cities_list
+from modules.cities import cities_list
 
 # Import Weather object from weather module
 from weather import Weather
