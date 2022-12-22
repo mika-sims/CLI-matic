@@ -287,7 +287,7 @@ def navigation_menu():
     white_text("Please select an option from the menu below and press ENTER.")
     print()
     yellow_text("Type 1 to search for another city.")
-    yellow_text("Type 2 to return to the main menu.")
+    yellow_text("Type 2 to restart the app.")
     yellow_text("Type 3 to exit the app")
     
     while True:
@@ -300,7 +300,10 @@ def navigation_menu():
         else:
             break
     if user_input == "1":
-        pass
+        clear()
+        blank_lines()
+        main_menu()
+        main_menu_user_input()
     if user_input == "2":
         pass
     if user_input == "3":
