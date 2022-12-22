@@ -46,7 +46,7 @@ def forecast_menu():
     print()
     yellow_text("-For current weather forecasts type 1")
     yellow_text("-For weather forecasts with 3-hour step type 2")
-    yellow_text("-To return to the main menu")
+    yellow_text("-To return to the main menu type 3")
     
 
 def clear():
