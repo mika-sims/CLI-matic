@@ -41,16 +41,16 @@ def get_user_name():
         else:
             break
 
-    get_user_location(user_name.title())
+    get_user_location()
 
-def get_user_location(username):
+def get_user_location():
     """
     Gets the current location of the user
     """
 
     clear()
     blank_lines()
-    white_text(f"Welcome to the CLI-matic {username}")
+    white_text(f"Welcome to the CLI-matic.")
     print()
     white_text("Before moving on to the next step,")
     white_text("I will ask you for one last piece of information.")
