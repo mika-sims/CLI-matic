@@ -80,3 +80,12 @@ def yellow_text(text):
         text (str): Text to be displayed
     """
     print(colored(text, "yellow").center(80))
+
+def white_text(text):
+    """
+    Prints white text
+
+    Args:
+        text (str): Text to be displayed
+    """
+    print(colored(text, "white").center(80))
