@@ -19,6 +19,7 @@ def banner():
     green_text("Press ENTER to continue")
     print()
     input("".center(35))
+    main_menu()
 
 
 def main_menu():
