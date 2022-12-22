@@ -24,6 +24,9 @@ with open("creds.json","r") as credentials:
 def get_user_location():
     """
     Gets the current location of the user
+    
+    Returns:
+        str: Users current location
     """
 
     clear()
@@ -78,17 +81,24 @@ def main_menu_user_input():
         main_menu()
 
 def forecast_menu_user_input():
+    """
+    Gets input from user for weather forecast type
+    """
 
     while True:
-        forecast_type = int(input("".center(35)))
-        if forecast_type not in [1, 2, 3]:
+        print()
+        forecast_type = input("".center(35))
+        if forecast_type not in ["1", "2", "3"]:
             clear()
-            blank_lines()
-            warning_text("Invalid input! Select an option from the list below.")
             forecast_menu()
+            print()
+            warning_text("Invalid input! Please try again.")
             continue
         else:
             break
+
+    forecast_type = int(forecast_type)
+
     if forecast_type == 1:
         pass
     if forecast_type == 2:
@@ -121,7 +131,6 @@ def get_target_location():
     return target_location
 
 
-
 def set_geolocation_url(target_location):
     """
     Sets the URL of the API call to find the coordinates
@@ -136,7 +145,8 @@ def set_geolocation_url(target_location):
     base_url = "http://api.openweathermap.org/geo/1.0/direct?"
     geolocation_url = f"{base_url}q={city}&limit=3&appid={OWM_API_KEY}"
 
-    print(geolocation_url)
+    return geolocation_url
+
 
 def run():
     banner()
