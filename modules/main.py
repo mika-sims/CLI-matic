@@ -276,7 +276,7 @@ def display_hourly_weather_forecast(data):
     # Call Weather object
     weather_obj = Weather(data)
     
-    country = coco.convert(names=weather_obj.sys.country, to="name")
+    country = coco.convert(names=weather_obj.city.country, to="name")
 
     times = ""
     temperatures = ""
