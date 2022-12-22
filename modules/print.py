@@ -11,11 +11,14 @@ def banner():
     """
     Prints application's banner.
     """
-
+    clear()
     blank_lines()
     print("Display weather forecasts for over 200,000 cities".center(80))
     banner = pyfiglet.figlet_format("CLI - matic", justify="center")
     print(colored(banner, "yellow"))
+    green_text("Press ENTER to continue")
+    print()
+    input("".center(35))
 
 
 def main_menu():
@@ -32,9 +35,9 @@ def main_menu():
     print()
     yellow_text("Please choose an option from the menu below and press ENTER.")
     print()
-    green_text("For your current location type 1")
-    green_text("For another location type 2")
-    green_text("To exit the application type 3")
+    green_text("-For your current location type 1")
+    green_text("-For another location type 2")
+    green_text("-To exit the application type 3")
 
 def forecast_menu():
     """

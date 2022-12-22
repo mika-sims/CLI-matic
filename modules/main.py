@@ -25,20 +25,17 @@ def get_user_location():
     """
     Gets the current location of the user
     """
-    clear()
     banner()
-    print()
     clear()
     blank_lines()
-    white_text(f"Welcome to the CLI-matic.")
+    green_text(f"Welcome to the CLI-matic.")
     print()
     white_text("Before moving on to the next step,")
-    white_text("I will ask you for one last piece of information.")
     print()
     yellow_text("Please enter the name of the city you live in.")
     print()
     while True:
-        user_location = input("".center(40)).title()
+        user_location = input("".center(35)).title()
         if user_location not in CITY_LIST or len(user_location) < 1 or \
             user_location.isspace() or user_location == "" or \
             user_location.isdigit():
@@ -64,8 +61,8 @@ def main_menu_user_input():
         _type_: _description_
     """
     while True:
-        user_input = input("".center(40))
         print()
+        user_input = input("".center(35))
         if user_input not in ["1","2","3"]:
             print()
             main_menu()
