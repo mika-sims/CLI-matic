@@ -52,7 +52,6 @@ def blank_lines():
     print()
     print()
     print()
-    print()
 
 
 def warning_text(text):
