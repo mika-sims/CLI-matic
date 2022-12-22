@@ -71,3 +71,12 @@ def green_text(text):
         text (str): Text to be displayed
     """
     print(colored(text, "green").center(80))
+
+def yellow_text(text):
+    """
+    Prints yellow text
+
+    Args:
+        text (str): Text to be displayed
+    """
+    print(colored(text, "yellow").center(80))
