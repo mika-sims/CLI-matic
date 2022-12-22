@@ -23,7 +23,7 @@ from modules.api_call import api_call
 from modules.cities import cities_list
 
 # Import Weather object from weather module
-from weather import Weather
+from modules.weather import Weather
 
 console = Console()
 
