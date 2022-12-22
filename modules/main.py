@@ -12,7 +12,7 @@ from rich.table import Table
 from datetime import datetime
 
 # Import functions from print.py module
-from print import main_menu, forecast_menu
+from print import main_menu, forecast_menu, exit
 from print import warning_text, clear, blank_lines, banner, green_text
 from print import yellow_text, white_text
 
@@ -305,14 +305,14 @@ def navigation_menu():
         main_menu()
         main_menu_user_input()
     if user_input == "2":
-        pass
+        banner()
     if user_input == "3":
-        pass
-
+        exit()
 
 
 def run():
     banner()
+    main_menu_user_input()
 
 if __name__ == '__main__':
     run()
