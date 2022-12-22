@@ -1,6 +1,9 @@
 # Import json library
 import json
 
+# Import country converter library
+import country_converter as coco
+
 # Import functions from print.py module
 from print import main_menu, forecast_menu
 from print import warning_text, clear, blank_lines, banner, green_text
@@ -145,8 +148,52 @@ def set_geolocation_url(target_location):
     base_url = "http://api.openweathermap.org/geo/1.0/direct?"
     geolocation_url = f"{base_url}q={city}&limit=3&appid={OWM_API_KEY}"
 
-    return geolocation_url
+    geolocation_data(geolocation_url)
 
+
+def geolocation_data(url):
+    """
+    Returns geolocation data as latitude and longitude
+
+    Args:
+        url (str): URL to get data
+    """
+    
+    data = api_call(url)
+    if len(data) > 1:
+        clear()
+        blank_lines()
+        yellow_text("More than 1 result found for the searched city.")
+        options = "Please select an option from the list below.\n".center(80)
+        print()
+        for i, option in enumerate(data):
+            # Convert country code to country name
+            country = coco.convert(names=option["country"], to="name")
+            city_name = option["name"]
+            options += f"\n \
+                -Enter {str(i + 1)} for: {city_name},{country}"
+        print(options)
+        print()
+        
+        # Validate the user input
+        while True:
+            dict_index = input("".center(40))
+            if dict_index not in ["1", "2", "3"]:
+                clear()
+                blank_lines()
+                warning_text("No valid option selected! Please try again")
+                print()
+                print(options)
+                print()
+                continue
+            else:
+                break
+    dict_index = int(dict_index)
+    target_city_dict = data[dict_index - 1]
+    latitude = target_city_dict["lat"]
+    longitude = target_city_dict["lon"]
+    print(latitude, longitude)
+    return latitude, longitude
 
 def run():
     banner()
