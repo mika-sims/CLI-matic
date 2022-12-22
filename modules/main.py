@@ -83,8 +83,10 @@ def forecast_menu_user_input():
 
     if forecast_type == 1:
         set_geolocation_url(get_target_location())
+        current_weather_data(latitude, longitude)
     if forecast_type == 2:
         set_geolocation_url(get_target_location())
+        hourly_weather_forecast_data(latitude, longitude)
     if forecast_type == 3:
         clear()
         blank_lines()
@@ -171,9 +173,12 @@ def geolocation_data(url):
                 break
     dict_index = int(dict_index)
     target_city_dict = data[dict_index - 1]
+    global latitude
     latitude = target_city_dict["lat"]
+    global longitude
     longitude = target_city_dict["lon"]
-    return latitude, longitude
+    return {latitude, longitude}
+
 
 def current_weather_data(latitude, longitude):
     """
@@ -191,6 +196,7 @@ def current_weather_data(latitude, longitude):
     data = api_call(weather_url)
     display_current_weather(data)
 
+
 def hourly_weather_forecast_data(latitude, longitude):
     """
     Returns the 3-hour interval weather forecasts data as JSON object
@@ -202,10 +208,10 @@ def hourly_weather_forecast_data(latitude, longitude):
     
     base_url = "https://api.openweathermap.org/data/2.5/forecast?"
     forecast_url = base_url + "lat=" + str(latitude) + "&lon=" + \
-                str(longitude) + "&appid=" + API_KEY + "&units=metric"
+                str(longitude) + "&cnt=8&appid=" + API_KEY + "&units=metric"
     
     data = api_call(forecast_url)
-    return(data)
+    display_hourly_weather_forecast(data)
     
 def display_current_weather(data):
     """
@@ -260,6 +266,66 @@ def display_current_weather(data):
     console.print(table)
     print()
     navigation_menu()
+
+def display_hourly_weather_forecast(data):
+    """
+    Prints the forecast in 3-hour intervals
+    """
+    # Call Weather object
+    weather_obj = Weather(data)
+
+    times = ""
+    temperatures = ""
+    feels = ""
+    min_temperatures = ""
+    max_temperatures = ""
+    humidities = ""
+    descriptions = ""
+    city = weather_obj.city.name
+    
+    weather_obj_list = weather_obj.list
+    for i in range(len(weather_obj_list)):
+
+        day = datetime.utcfromtimestamp(weather_obj_list[i].dt) \
+            .strftime("%a %d %b")
+        time = datetime.utcfromtimestamp(weather_obj_list[i].dt) \
+            .strftime("%H:%M")
+        temperature = weather_obj_list[i].main.temp
+        feels_like = weather_obj_list[i].main.feels_like
+        min_temperature = weather_obj_list[i].main.temp_min
+        max_temperature = weather_obj_list[i].main.temp_max
+        humidity = weather_obj_list[i].main.humidity
+        description = weather_obj_list[i].weather[0].description
+
+        times += time + "\n"
+        temperatures += str(temperature) + " °C" + "\n"
+        feels += str(feels_like) + " °C" + "\n"
+        min_temperatures += str(min_temperature) + " °C" + "\n"
+        max_temperatures += str(max_temperature) + " °C" + "\n"
+        humidities += str(humidity) + " %" + "\n"
+        descriptions += description + "\n"
+
+    table = Table(
+        show_header=True,
+        header_style="bold red",
+        title=f"{city} daily weather forecasts in 3-hour intervals for {day}",
+    )
+
+    table.add_column("Time", justify="center")
+    table.add_column("Temperature", justify="center")
+    table.add_column("Feels like", justify="center")
+    table.add_column("Humidity", justify="center")
+    table.add_column("Description", justify="center")
+
+    table.add_row(
+        times,
+        temperatures,
+        feels,
+        humidities,
+        descriptions.title(),
+    )
+    clear()
+    console.print(table)    
 
 
 def navigation_menu():
