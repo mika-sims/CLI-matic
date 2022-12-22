@@ -3,7 +3,7 @@ import json
 
 # Import functions from print.py module
 from print import main_menu
-from print import warning_text, clear, blank_lines, banner, green_text, yellow_text
+from print import warning_text, clear, blank_lines, banner, green_text
 from print import yellow_text, white_text
 
 # Import api_call function from api_call module
@@ -72,10 +72,10 @@ def get_user_location(username):
             continue
         else:
             break
-    return user_location
+    main_menu(username)
 
 
-
+get_user_name()
 
 def get_target_location():
     """
