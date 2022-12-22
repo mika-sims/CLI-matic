@@ -18,7 +18,7 @@ def banner():
     print(colored(banner, "yellow"))
     green_text("Press ENTER to continue")
     print()
-    input("".center(35))
+    input("".center(40))
     clear()
     blank_lines()
     greeting()
@@ -26,32 +26,21 @@ def banner():
 
 
 def greeting():
-    yellow_text(f"Welcome to the CLI-matic.")
+    white_text(f"Welcome to the CLI-matic.")
     print()
-    white_text("With CLI-matic you can display the weather forecast")
-    white_text("for your current location or for another location.")
+    yellow_text("With CLI-matic you can display the weather forecast")
+    yellow_text("over 200,000 cities")
     print()
-
-def exit():
-    clear()
-    blank_lines()
-    yellow_text("Thank you for using CLI-matic.")
-    message = pyfiglet.figlet_format("Goodbye", justify="center")
-    print(colored(message, "blue"))
-    print()
-    warning_text("Press the 'RUN PROGRAM' button to restart the app.")
-    quit()
 
 def main_menu():
     """
     Displays the main menu to the user.
     """
 
-    yellow_text("Please choose an option from the menu below and press ENTER.")
+    green_text("Please choose an option from the menu below and press ENTER.")
     print()
-    green_text("-For your current location type 1")
-    green_text("-For another location type 2")
-    green_text("-To exit the application type 3")
+    yellow_text("-Type 1 to search by city name.")
+    yellow_text("-Type 2 to exit the app")
 
 def forecast_menu():
     """
@@ -64,6 +53,17 @@ def forecast_menu():
     yellow_text("-For current weather forecasts type 1")
     yellow_text("-For weather forecasts with 3-hour step type 2")
     yellow_text("-To return to the main menu type 3")
+
+
+def exit():
+    clear()
+    blank_lines()
+    yellow_text("Thank you for using CLI-matic.")
+    message = pyfiglet.figlet_format("Goodbye", justify="center")
+    print(colored(message, "blue"))
+    print()
+    green_text("Press the 'RUN PROGRAM' button to restart the app.")
+    quit()
     
 
 def clear():
