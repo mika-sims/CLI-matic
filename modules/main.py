@@ -21,33 +21,13 @@ with open("creds.json","r") as credentials:
     OWM_API_KEY = api_keys["owm_api_key"]
 
 
-def get_user_name():
-    """
-    Prints a welcome message to the screen.
-    """
-    clear()
-    banner()
-    print()
-    
-    while True:
-        green_text("Please type your name and press ENTER")
-        user_name = input("".center(40))
-        if len(user_name) > 15 or user_name.isspace() or user_name == "" \
-            or user_name.isdigit():
-            clear()
-            banner()
-            warning_text("Please enter a name up to 15 characters long.")
-            print()
-        else:
-            break
-
-    get_user_location()
-
 def get_user_location():
     """
     Gets the current location of the user
     """
-
+    clear()
+    banner()
+    print()
     clear()
     blank_lines()
     white_text(f"Welcome to the CLI-matic.")
@@ -128,7 +108,7 @@ def get_target_location():
             break
     return target_location
 
-get_user_name()
+get_user_location()
 
 def set_geolocation_url(target_location):
     """
