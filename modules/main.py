@@ -73,6 +73,32 @@ def get_user_location(username):
         else:
             break
     main_menu(username)
+    main_menu_user_input(username)
+
+
+def main_menu_user_input(username):
+    """
+    Provides input to the user
+
+    Returns:
+        _type_: _description_
+    """
+    while True:
+        user_input = input("".center(40))
+        print()
+        if user_input not in ["1","2","3"]:
+            print()
+            main_menu(username)
+            print()
+            warning_text("Invalid input! Please try again.")
+        else:
+            break
+    if user_input == "1":
+        pass
+    if user_input == "2":
+        pass
+    if user_input == "3":
+        pass
 
 
 get_user_name()
