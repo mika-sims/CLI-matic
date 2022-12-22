@@ -3,7 +3,7 @@ import json
 
 # Import functions from print.py module
 from print import main_menu
-from print import warning_text, clear, blank_lines
+from print import warning_text, clear, blank_lines, banner, green_text
 
 # Import api_call function from api_call module
 from api_call import api_call
@@ -14,6 +14,30 @@ with open("creds.json","r") as credentials:
     api_keys = json.load(credentials)
     IPDATA_API_KEY = api_keys["ipdata_api_key"]
     OWM_API_KEY = api_keys["owm_api_key"]
+
+
+def get_user_name():
+    """
+    Prints a welcome message to the screen.
+    """
+    clear()
+    banner()
+    print()
+    
+    while True:
+        green_text("Please type your name and press ENTER")
+        user_name = input("".center(40))
+        if len(user_name) > 15 or user_name.isspace() or user_name == "" \
+            or user_name.isdigit():
+            clear()
+            banner()
+            warning_text("Please enter a name up to 15 characters long.")
+            print()
+        else:
+            break
+            
+    return user_name.title()
+
 
 def get_target_location():
     """
