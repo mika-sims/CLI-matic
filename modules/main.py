@@ -2,7 +2,7 @@
 import json
 
 # Import functions from print.py module
-from print import main_menu
+from print import main_menu, forecast_menu
 from print import warning_text, clear, blank_lines, banner, green_text
 from print import yellow_text, white_text
 
@@ -12,6 +12,7 @@ from api_call import api_call
 # Import cities list from cities module
 from cities import cities_list
 
+CITY_LIST = cities_list()
 
 # Reads creds file and asigns api keys to variables
 with open("creds.json","r") as credentials:
@@ -58,8 +59,7 @@ def get_user_location(username):
     print()
     while True:
         user_location = input("".center(40)).title()
-        cities = cities_list()
-        if user_location not in cities or len(user_location) < 1 or \
+        if user_location not in CITY_LIST or len(user_location) < 1 or \
             user_location.isspace() or user_location == "" or \
             user_location.isdigit():
 
@@ -94,14 +94,15 @@ def main_menu_user_input(username):
         else:
             break
     if user_input == "1":
-        pass
+        forecast_menu()
     if user_input == "2":
-        pass
+        clear()
+        blank_lines()
+        get_target_location()
     if user_input == "3":
         pass
 
 
-get_user_name()
 
 def get_target_location():
     """
@@ -109,25 +110,23 @@ def get_target_location():
     """
     
     while True:
-        try:
-            main_menu()
-            target_location = int(input("".center(40)))
-        except ValueError:
+        white_text("Which city would you like to display the forecast for?")
+        white_text("Please enter a city name.")
+        print()
+        target_location = input("".center(40)).title()
+        print()
+        if target_location not in CITY_LIST:
+            
             clear()
             blank_lines()
-            warning_text("Invalid entry!")
-            warning_text("Please try again.")
-            continue
-        if target_location not in [1, 2]:
-            clear()
-            blank_lines()
-            warning_text("Invalid entry!")
-            warning_text("Please try again.")
+            warning_text("Invalid entry! Please try again.")
+            print()
             continue
         else:
             break
-    set_geolocation_url(target_location)
+    return target_location
 
+get_user_name()
 
 def set_geolocation_url(target_location):
     """
