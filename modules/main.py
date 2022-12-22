@@ -209,6 +209,7 @@ def geolocation_data(url):
     latitude = target_city_dict["lat"]
     longitude = target_city_dict["lon"]
     current_weather_data(latitude, longitude)
+    hourly_weather_forecast_data(latitude, longitude)
 
 def current_weather_data(latitude, longitude):
     """
@@ -220,10 +221,27 @@ def current_weather_data(latitude, longitude):
     """
     
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
-    weather_url = f"{base_url}lat={latitude}&lon={longitude}&appid={API_KEY}"
+    weather_url = base_url + "lat=" + latitude + "&lon=" + \
+                longitude+"&appid=" + API_KEY + "&units=metric"
     
     data = api_call(weather_url)
     display_current_weather(data)
+
+def hourly_weather_forecast_data(latitude, longitude):
+    """
+    Returns the current weather data as JSON object
+
+    Args:
+        latitude (float): Latitude of the city to get the weather forecast
+        longitude (float): Longitude of the city to get the weather forecast
+    """
+    
+    base_url = "https://api.openweathermap.org/data/2.5/forecast?"
+    weather_url = base_url + "lat=" + latitude + "&lon=" + \
+                longitude+"&appid=" + API_KEY + "&units=metric"
+    
+    data = api_call(weather_url)
+    return(data)
     
 def display_current_weather(data):
     """
