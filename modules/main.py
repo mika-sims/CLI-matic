@@ -73,8 +73,6 @@ def main_menu_user_input():
     if user_input == "1":
         forecast_menu()
     if user_input == "2":
-        clear()
-        blank_lines()
         get_target_location()
         forecast_menu()
     if user_input == "3":
@@ -87,10 +85,12 @@ def get_target_location():
     """
     Asks the user for which city the forecast will be displayed
     """
-    
+    clear()
+    blank_lines()
     while True:
         white_text("Which city would you like to display the forecast for?")
-        white_text("Please enter a city name.")
+        print()
+        green_text("Please enter a city name.")
         print()
         target_location = input("".center(40)).title()
         print()
