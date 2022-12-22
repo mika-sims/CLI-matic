@@ -18,14 +18,14 @@ def banner():
     print(colored(banner, "yellow"))
 
 
-def main_menu(username):
+def main_menu():
     """
     Displays the main menu to the user.
     """
     
     clear()
     blank_lines()
-    yellow_text(f"Hello again {username}.")
+    yellow_text(f"Welcome to the main menu.")
     print()
     white_text("With CLI-matic you can display the weather forecast")
     white_text("for your current location or for another location.")

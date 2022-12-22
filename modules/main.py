@@ -72,11 +72,11 @@ def get_user_location(username):
             continue
         else:
             break
-    main_menu(username)
-    main_menu_user_input(username)
+    main_menu()
+    main_menu_user_input()
 
 
-def main_menu_user_input(username):
+def main_menu_user_input():
     """
     Provides input to the user
 
@@ -88,7 +88,7 @@ def main_menu_user_input(username):
         print()
         if user_input not in ["1","2","3"]:
             print()
-            main_menu(username)
+            main_menu()
             print()
             warning_text("Invalid input! Please try again.")
         else:
@@ -99,8 +99,10 @@ def main_menu_user_input(username):
         clear()
         blank_lines()
         get_target_location()
+        forecast_menu()
     if user_input == "3":
-        pass
+        clear()
+        main_menu()
 
 
 
