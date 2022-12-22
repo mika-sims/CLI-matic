@@ -3,7 +3,7 @@ import json
 
 # Import functions from print.py module
 from print import main_menu
-from print import warning_text, clear, blank_lines, banner, green_text
+from print import warning_text, clear, blank_lines, banner, green_text, yellow_text
 
 # Import api_call function from api_call module
 from api_call import api_call
@@ -35,8 +35,22 @@ def get_user_name():
             print()
         else:
             break
-            
-    return user_name.title()
+
+    get_user_location(user_name)
+
+def get_user_location(username):
+    """
+    Gets the current location of the user
+    """
+    yellow_text(f"Welcome to the CLI-matic {username}")
+    yellow_text("Before moving on to the next section,")
+    yellow_text("I will ask you for one last piece of information.")
+    yellow_text("Please enter the name of the city you live in.")
+    user_name = input("".center(40)).title()
+    print(user_name)
+    
+    
+get_user_location("Mikail")    
 
 
 def get_target_location():
@@ -117,4 +131,3 @@ def get_geolocation_data(url):
     print(geolocation_data)
 
 
-get_target_location()
