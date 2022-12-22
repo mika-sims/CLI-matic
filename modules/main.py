@@ -35,36 +35,6 @@ with open("creds.json","r") as credentials:
     API_KEY = api_keys["api_key"]
 
 
-def get_user_location():
-    """
-    Gets the current location of the user
-    
-    Returns:
-        str: Users current location
-    """
-
-    clear()
-    blank_lines()
-    yellow_text("Please enter the name of the city you live in.")
-    print()
-    while True:
-        user_location = input("".center(35)).title()
-        if user_location not in CITY_LIST or len(user_location) < 1 or \
-            user_location.isspace() or user_location == "" or \
-            user_location.isdigit():
-
-            clear()
-            blank_lines()
-            warning_text("There is no data for the city name you entered.")
-            print()
-            yellow_text("Please write the city name in English.")
-            print()
-            continue
-        else:
-            break
-    return user_location
-
-
 def main_menu_user_input():
     """
     Provides input to the user
@@ -75,7 +45,7 @@ def main_menu_user_input():
     while True:
         print()
         user_input = input("".center(35))
-        if user_input not in ["1","2","3"]:
+        if user_input not in ["1","2"]:
             print()
             clear()
             blank_lines()
@@ -87,15 +57,10 @@ def main_menu_user_input():
     if user_input == "1":
         forecast_menu()
         forecast_menu_user_input()
-        set_geolocation_url(get_user_location())
+        
     if user_input == "2":
-        forecast_menu()
-        forecast_menu_user_input()
-        set_geolocation_url(get_target_location())
-    if user_input == "3":
-        clear()
-        blank_lines()
-        main_menu()
+        exit()
+
 
 def forecast_menu_user_input():
     """
@@ -117,9 +82,9 @@ def forecast_menu_user_input():
     forecast_type = int(forecast_type)
 
     if forecast_type == 1:
-        pass
+        set_geolocation_url(get_user_location())
     if forecast_type == 2:
-        pass
+        set_geolocation_url(get_target_location())
     if forecast_type == 3:
         clear()
         blank_lines()
@@ -208,8 +173,7 @@ def geolocation_data(url):
     target_city_dict = data[dict_index - 1]
     latitude = target_city_dict["lat"]
     longitude = target_city_dict["lon"]
-    current_weather_data(latitude, longitude)
-    hourly_weather_forecast_data(latitude, longitude)
+    return latitude, longitude
 
 def current_weather_data(latitude, longitude):
     """
@@ -221,8 +185,8 @@ def current_weather_data(latitude, longitude):
     """
     
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
-    weather_url = base_url + "lat=" + latitude + "&lon=" + \
-                longitude+"&appid=" + API_KEY + "&units=metric"
+    weather_url = base_url + "lat=" + str(latitude) + "&lon=" + \
+                str(longitude) + "&appid=" + API_KEY + "&units=metric"
     
     data = api_call(weather_url)
     display_current_weather(data)
@@ -237,10 +201,10 @@ def hourly_weather_forecast_data(latitude, longitude):
     """
     
     base_url = "https://api.openweathermap.org/data/2.5/forecast?"
-    weather_url = base_url + "lat=" + latitude + "&lon=" + \
-                longitude+"&appid=" + API_KEY + "&units=metric"
+    forecast_url = base_url + "lat=" + str(latitude) + "&lon=" + \
+                str(longitude) + "&appid=" + API_KEY + "&units=metric"
     
-    data = api_call(weather_url)
+    data = api_call(forecast_url)
     return(data)
     
 def display_current_weather(data):
