@@ -25,13 +25,9 @@ def get_user_location():
     """
     Gets the current location of the user
     """
-    banner()
+
     clear()
     blank_lines()
-    green_text(f"Welcome to the CLI-matic.")
-    print()
-    white_text("Before moving on to the next step,")
-    print()
     yellow_text("Please enter the name of the city you live in.")
     print()
     while True:
@@ -49,8 +45,7 @@ def get_user_location():
             continue
         else:
             break
-    main_menu()
-    main_menu_user_input()
+    return user_location
 
 
 def main_menu_user_input():
@@ -73,9 +68,8 @@ def main_menu_user_input():
     if user_input == "1":
         forecast_menu()
         forecast_menu_user_input()
-        set_geolocation_url(get_user_location)
+        set_geolocation_url(get_user_location())
     if user_input == "2":
-        get_target_location()
         forecast_menu()
         forecast_menu_user_input()
         set_geolocation_url(get_target_location())
@@ -96,9 +90,9 @@ def forecast_menu_user_input():
         else:
             break
     if forecast_type == 1:
-        set_geolocation_url(get_target_location())
+        pass
     if forecast_type == 2:
-        print("YOOO")
+        pass
     if forecast_type == 3:
         main_menu()
 
@@ -144,7 +138,8 @@ def set_geolocation_url(target_location):
 
     print(geolocation_url)
 
-get_user_location()
+def run():
+    banner()
 
 # def get_geolocation_data(url):
 #     """
@@ -158,3 +153,6 @@ get_user_location()
 #     print(geolocation_data)
 
 
+if __name__ == '__main__':
+    run()
+    main_menu_user_input()
