@@ -19,6 +19,8 @@ def banner():
     green_text("Press ENTER to continue")
     print()
     input("".center(35))
+    clear()
+    blank_lines()
     main_menu()
 
 
@@ -26,9 +28,7 @@ def main_menu():
     """
     Displays the main menu to the user.
     """
-    
-    clear()
-    blank_lines()
+
     yellow_text(f"Welcome to the CLI-matic.")
     print()
     white_text("With CLI-matic you can display the weather forecast")
