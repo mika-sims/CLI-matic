@@ -20,8 +20,7 @@ CITY_LIST = cities_list()
 # Reads creds file and asigns api keys to variables
 with open("creds.json","r") as credentials:
     api_keys = json.load(credentials)
-    IPDATA_API_KEY = api_keys["ipdata_api_key"]
-    OWM_API_KEY = api_keys["owm_api_key"]
+    API_KEY = api_keys["api_key"]
 
 
 def get_user_location():
@@ -146,7 +145,7 @@ def set_geolocation_url(target_location):
 
     city = target_location
     base_url = "http://api.openweathermap.org/geo/1.0/direct?"
-    geolocation_url = f"{base_url}q={city}&limit=3&appid={OWM_API_KEY}"
+    geolocation_url = f"{base_url}q={city}&limit=3&appid={API_KEY}"
 
     geolocation_data(geolocation_url)
 
@@ -192,8 +191,22 @@ def geolocation_data(url):
     target_city_dict = data[dict_index - 1]
     latitude = target_city_dict["lat"]
     longitude = target_city_dict["lon"]
-    print(latitude, longitude)
-    return latitude, longitude
+    current_weather_data(latitude, longitude)
+
+def current_weather_data(latitude, longitude):
+    """
+    Returns the current weather data as JSON object
+
+    Args:
+        latitude (float): Latitude of the city to get the weather forecast
+        longitude (float): Longitude of the city to get the weather forecast
+    """
+    
+    base_url = "https://api.openweathermap.org/data/2.5/weather?"
+    current_weather_url = f"{base_url}lat={latitude}&lon={longitude}&appid={API_KEY}"
+    
+    data = api_call(current_weather_url)
+    print(data)
 
 def run():
     banner()
