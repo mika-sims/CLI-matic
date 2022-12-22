@@ -282,7 +282,6 @@ def display_hourly_weather_forecast(data):
     temperatures = ""
     feels = ""
     min_temperatures = ""
-    max_temperatures = ""
     humidities = ""
     descriptions = ""
     city = weather_obj.city.name
@@ -297,7 +296,6 @@ def display_hourly_weather_forecast(data):
         temperature = weather_obj_list[i].main.temp
         feels_like = weather_obj_list[i].main.feels_like
         min_temperature = weather_obj_list[i].main.temp_min
-        max_temperature = weather_obj_list[i].main.temp_max
         humidity = weather_obj_list[i].main.humidity
         description = weather_obj_list[i].weather[0].description
 
@@ -305,7 +303,6 @@ def display_hourly_weather_forecast(data):
         temperatures += str(temperature) + " °C" + "\n"
         feels += str(feels_like) + " °C" + "\n"
         min_temperatures += str(min_temperature) + " °C" + "\n"
-        max_temperatures += str(max_temperature) + " °C" + "\n"
         humidities += str(humidity) + " %" + "\n"
         descriptions += description + "\n"
 
@@ -319,7 +316,6 @@ def display_hourly_weather_forecast(data):
     table.add_column("Temp.", justify="center")
     table.add_column("Feels like", justify="center")
     table.add_column("Min Temp.", justify="center")
-    table.add_column("Max Temp.", justify="center")
     table.add_column("Humidity", justify="center")
     table.add_column("Description", justify="center")
 
@@ -328,7 +324,6 @@ def display_hourly_weather_forecast(data):
         temperatures,
         feels,
         min_temperatures,
-        max_temperatures,
         humidities,
         descriptions.title(),
     )
