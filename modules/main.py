@@ -307,13 +307,15 @@ def display_hourly_weather_forecast(data):
 
     table = Table(
         show_header=True,
-        header_style="bold red",
+        header_style="bold blue",
         title=f"{city} daily weather forecasts in 3-hour intervals for {day}",
     )
 
     table.add_column("Time", justify="center")
-    table.add_column("Temperature", justify="center")
+    table.add_column("Temp.", justify="center")
     table.add_column("Feels like", justify="center")
+    table.add_column("Min Temp.", justify="center")
+    table.add_column("Max Temp.", justify="center")
     table.add_column("Humidity", justify="center")
     table.add_column("Description", justify="center")
 
@@ -321,6 +323,8 @@ def display_hourly_weather_forecast(data):
         times,
         temperatures,
         feels,
+        min_temperatures,
+        max_temperatures,
         humidities,
         descriptions.title(),
     )
