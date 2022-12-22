@@ -28,3 +28,30 @@ def download_cities_file():
         except ConnectionError as connection_e:
             print(f"A Connection error occurred: {connection_e}")
 
+
+def cities_list(target_city):
+    """
+    Creates a list of city names from the downloaded file
+
+    Args:
+        target_city (str): Name of target city for weather forecast
+
+    Returns:
+        str: Target city
+    """    
+    
+    download_cities_file()
+
+    target_city = target_city.title()
+    all_cities = []
+
+    with gzip.open(CITY_LIST_GZ, "rb", "utf-8") as f:
+        cities = json.loads(f.read())
+        for city_dict in cities:
+            all_cities.append(city_dict["name"])
+
+        if target_city not in all_cities:
+            print(f"No data found for {target_city}".center(80))
+            return None
+        else:
+            return target_city
