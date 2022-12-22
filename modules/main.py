@@ -314,18 +314,6 @@ def navigation_menu():
 def run():
     banner()
 
-# def get_geolocation_data(url):
-#     """
-#     Returns location coordinates data as a JSON object
-
-#     Args:
-#         url (str): The URL of the API call to be made for the location
-#                     to get the coordinates
-#     """
-#     geolocation_data = api_call(url)
-#     print(geolocation_data)
-
-
 if __name__ == '__main__':
     run()
     main_menu_user_input()
