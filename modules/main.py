@@ -72,6 +72,7 @@ def main_menu_user_input():
             break
     if user_input == "1":
         forecast_menu()
+        forecast_menu_user_input()
     if user_input == "2":
         get_target_location()
         forecast_menu()
@@ -79,6 +80,24 @@ def main_menu_user_input():
         clear()
         main_menu()
 
+def forecast_menu_user_input():
+
+    while True:
+        forecast_type = int(input("").center(35))
+        if forecast_type not in [1, 2, 3]:
+            clear()
+            blank_lines()
+            warning_text("Invalid input! Select an option from the list below.")
+            forecast_menu()
+            continue
+        else:
+            break
+    if forecast_type == 1:
+        print("YEEEE")
+    if forecast_type == 2:
+        print("YOOO")
+    if forecast_type == 3:
+        main_menu()
 
 
 def get_target_location():
