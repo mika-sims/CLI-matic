@@ -21,19 +21,22 @@ def banner():
     input("".center(35))
     clear()
     blank_lines()
+    greeting()
     main_menu()
 
+
+def greeting():
+    yellow_text(f"Welcome to the CLI-matic.")
+    print()
+    white_text("With CLI-matic you can display the weather forecast")
+    white_text("for your current location or for another location.")
+    print()  
 
 def main_menu():
     """
     Displays the main menu to the user.
     """
 
-    yellow_text(f"Welcome to the CLI-matic.")
-    print()
-    white_text("With CLI-matic you can display the weather forecast")
-    white_text("for your current location or for another location.")
-    print()
     yellow_text("Please choose an option from the menu below and press ENTER.")
     print()
     green_text("-For your current location type 1")
