@@ -229,7 +229,7 @@ def current_weather_data(latitude, longitude):
 
 def hourly_weather_forecast_data(latitude, longitude):
     """
-    Returns the current weather data as JSON object
+    Returns the 3-hour interval weather forecasts data as JSON object
 
     Args:
         latitude (float): Latitude of the city to get the weather forecast
