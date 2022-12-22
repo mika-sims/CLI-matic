@@ -63,4 +63,11 @@ def warning_text(text):
     """
     print(colored(text, "red").center(80))
 
-get_user_name()
+def green_text(text):
+    """
+    Prints green text
+
+    Args:
+        text (str): Text to be displayed
+    """
+    print(colored(text, "green").center(80))
