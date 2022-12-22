@@ -93,7 +93,7 @@ def forecast_menu_user_input():
         else:
             break
     if forecast_type == 1:
-        print("YEEEE")
+        set_geolocation_url(get_target_location())
     if forecast_type == 2:
         print("YOOO")
     if forecast_type == 3:
@@ -114,7 +114,6 @@ def get_target_location():
         target_location = input("".center(40)).title()
         print()
         if target_location not in CITY_LIST:
-            
             clear()
             blank_lines()
             warning_text("Invalid entry! Please try again.")
@@ -124,7 +123,7 @@ def get_target_location():
             break
     return target_location
 
-get_user_location()
+
 
 def set_geolocation_url(target_location):
     """
@@ -135,36 +134,14 @@ def set_geolocation_url(target_location):
         target_location (int): The return value of the
                                 get_target_location function 
     """
-    
-    if target_location == 1:
-        geolocation_url = f"https://api.ipdata.co?api-key={IPDATA_API_KEY}"
-    elif target_location == 2:
-        city = get_target_city_name()
-        geolocation_url = f"http://api.openweathermap.org/geo/1.0/direct?q= \
-                            {city}&limit=3&appid={OWM_API_KEY}"
 
-    get_geolocation_data(geolocation_url)
+    city = target_location
+    base_url = "http://api.openweathermap.org/geo/1.0/direct?"
+    geolocation_url = f"{base_url}q={city}&limit=3&appid={OWM_API_KEY}"
 
-def get_target_city_name():
-    """
-    Gets parameters for target city from user
-    """
-    while True:
-        try:
-            print("Please enter a city name.".center(80))
-            city = input("".center(40))
-        except ValueError:
-            print("Invalid city name!")
-            continue
-        if len(city) == 0:
-            print("City name can't be empty! Please try again.".center(80))
-            continue
-        elif any(char.isdigit() for char in city):
-            print("City name can't contain number. Please try again." \
-                .center(80))
-        else:
-            break
-    return city
+    print(geolocation_url)
+
+get_user_location()
 
 def get_geolocation_data(url):
     """
