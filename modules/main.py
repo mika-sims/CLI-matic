@@ -4,6 +4,13 @@ import json
 # Import country converter library
 import country_converter as coco
 
+# Import console and table from rich library to print data to console
+from rich.console import Console
+from rich.table import Table
+
+# Import datetime to convert timestamp to datetime
+from datetime import datetime
+
 # Import functions from print.py module
 from print import main_menu, forecast_menu
 from print import warning_text, clear, blank_lines, banner, green_text
@@ -14,6 +21,11 @@ from api_call import api_call
 
 # Import cities list from cities module
 from cities import cities_list
+
+# Import Weather object from weather module
+from weather import Weather
+
+console = Console()
 
 CITY_LIST = cities_list()
 
@@ -203,10 +215,64 @@ def current_weather_data(latitude, longitude):
     """
     
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
-    current_weather_url = f"{base_url}lat={latitude}&lon={longitude}&appid={API_KEY}"
+    weather_url = f"{base_url}lat={latitude}&lon={longitude}&appid={API_KEY}"
     
-    data = api_call(current_weather_url)
-    print(data)
+    data = api_call(weather_url)
+    display_current_weather(data)
+    
+def display_current_weather(data):
+    """
+    Displays the current weather forecast in table format
+
+    Args:
+        data (list): Nested JSON object
+    """
+    
+    # Call Weather object
+    current_weather_obj = Weather(data)
+    
+    country = coco.convert(names=current_weather_obj.sys.country, to="name")
+    
+    day = datetime.utcfromtimestamp(current_weather_obj.dt).strftime("%a %d %b")
+    time = datetime.utcfromtimestamp(current_weather_obj.dt).strftime("%H:%M")
+    temperature = current_weather_obj.main.temp
+    feels_like = current_weather_obj.main.feels_like
+    min_temperature = current_weather_obj.main.temp_min
+    max_temperature = current_weather_obj.main.temp_max
+    humidity = current_weather_obj.main.humidity
+    description = current_weather_obj.weather[0].description
+    wind_speed = current_weather_obj.wind.speed
+    location = current_weather_obj.name
+
+    table = Table(
+        show_header=True,
+        header_style="bold blue",
+        title=f"\n{location}, {country} current weather forecast for {day}",
+    )
+    
+    table.add_column("Time", justify="center")
+    table.add_column("Temperature", justify="center")
+    table.add_column("Feels like", justify="center")
+    table.add_column("Min Temperature", justify="center")
+    table.add_column("Max Temperature", justify="center")
+    table.add_column("Humidity", justify="center")
+    table.add_column("Wind Speed", justify="center")
+    table.add_column("Description", justify="center")
+
+    table.add_row(
+        str(time),
+        str(temperature) + " °C",
+        str(feels_like) + " °C",
+        str(min_temperature) + " °C",
+        str(max_temperature) + " °C",
+        str(humidity) + " %",
+        str(wind_speed) + " m/s",
+        description.title(),
+    )
+    clear()
+    console.print(table)
+    print()
+    main_menu()
 
 def run():
     banner()
