@@ -40,11 +40,13 @@ def forecast_menu():
     """
     Provides the user weather forecasts type
     """
+    clear()
+    blank_lines()
     white_text("CLI-matic provides 2 types of weather forecasts.")
     print()
-    yellow_text("For current weather forecasts type 1")
-    yellow_text("For weather forecasts with 3-hour step type 2")
-    yellow_text("To return to the main menu")
+    yellow_text("-For current weather forecasts type 1")
+    yellow_text("-For weather forecasts with 3-hour step type 2")
+    yellow_text("-To return to the main menu")
     
 
 def clear():
