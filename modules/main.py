@@ -277,7 +277,36 @@ def display_current_weather(data):
     clear()
     console.print(table)
     print()
-    main_menu()
+    navigation_menu()
+
+
+def navigation_menu():
+    """
+    Provides navigation to the user
+    """
+    white_text("Please select an option from the menu below and press ENTER.")
+    print()
+    yellow_text("Type 1 to search for another city.")
+    yellow_text("Type 2 to return to the main menu.")
+    yellow_text("Type 3 to exit the app")
+    
+    while True:
+        print()
+        user_input = input("".center(35))
+        if user_input not in ["1", "2", "3"]:
+            print()
+            warning_text("Invalid input! Please try again.")
+            continue
+        else:
+            break
+    if user_input == "1":
+        pass
+    if user_input == "2":
+        pass
+    if user_input == "3":
+        pass
+
+
 
 def run():
     banner()
