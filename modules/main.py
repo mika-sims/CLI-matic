@@ -73,9 +73,12 @@ def main_menu_user_input():
     if user_input == "1":
         forecast_menu()
         forecast_menu_user_input()
+        set_geolocation_url(get_user_location)
     if user_input == "2":
         get_target_location()
         forecast_menu()
+        forecast_menu_user_input()
+        set_geolocation_url(get_target_location())
     if user_input == "3":
         clear()
         main_menu()
@@ -83,7 +86,7 @@ def main_menu_user_input():
 def forecast_menu_user_input():
 
     while True:
-        forecast_type = int(input("").center(35))
+        forecast_type = int(input("".center(35)))
         if forecast_type not in [1, 2, 3]:
             clear()
             blank_lines()
@@ -143,15 +146,15 @@ def set_geolocation_url(target_location):
 
 get_user_location()
 
-def get_geolocation_data(url):
-    """
-    Returns location coordinates data as a JSON object
+# def get_geolocation_data(url):
+#     """
+#     Returns location coordinates data as a JSON object
 
-    Args:
-        url (str): The URL of the API call to be made for the location
-                    to get the coordinates
-    """
-    geolocation_data = api_call(url)
-    print(geolocation_data)
+#     Args:
+#         url (str): The URL of the API call to be made for the location
+#                     to get the coordinates
+#     """
+#     geolocation_data = api_call(url)
+#     print(geolocation_data)
 
 
