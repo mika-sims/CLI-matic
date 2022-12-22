@@ -35,6 +35,16 @@ def main_menu(username):
     green_text("For your current location type 1")
     green_text("For another location type 2")
     green_text("To exit the application type 3")
+
+def forecast_menu():
+    """
+    Provides the user weather forecasts type
+    """
+    white_text("CLI-matic provides 2 types of weather forecasts.")
+    print()
+    yellow_text("For current weather forecasts type 1")
+    yellow_text("For weather forecasts with 3-hour step type 2")
+    yellow_text("To return to the main menu")
     
 
 def clear():
