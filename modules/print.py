@@ -30,7 +30,17 @@ def greeting():
     print()
     white_text("With CLI-matic you can display the weather forecast")
     white_text("for your current location or for another location.")
-    print()  
+    print()
+
+def exit():
+    clear()
+    blank_lines()
+    yellow_text("Thank you for using CLI-matic.")
+    message = pyfiglet.figlet_format("Goodbye", justify="center")
+    print(colored(message, "blue"))
+    print()
+    warning_text("Press the 'RUN PROGRAM' button to restart the app.")
+    quit()
 
 def main_menu():
     """
