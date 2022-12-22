@@ -104,7 +104,7 @@ def get_target_location():
         print()
         green_text("Please enter a city name.")
         print()
-        target_location = input("".center(40)).title()
+        target_location = input("".center(35)).title()
         print()
         if target_location not in CITY_LIST:
             clear()
@@ -160,7 +160,7 @@ def geolocation_data(url):
         
         # Validate the user input
         while True:
-            dict_index = input("".center(40))
+            dict_index = input("".center(35))
             if dict_index not in ["1", "2", "3"]:
                 clear()
                 blank_lines()
@@ -262,6 +262,7 @@ def display_current_weather(data):
         str(wind_speed) + " m/s",
         description.title(),
     )
+
     clear()
     console.print(table)
     print()
@@ -328,8 +329,11 @@ def display_hourly_weather_forecast(data):
         humidities,
         descriptions.title(),
     )
+
     clear()
-    console.print(table)    
+    console.print(table)
+    print()
+    navigation_menu()
 
 
 def navigation_menu():
@@ -358,6 +362,7 @@ def navigation_menu():
         main_menu_user_input()
     if user_input == "2":
         banner()
+        main_menu_user_input()
     if user_input == "3":
         exit()
 
@@ -368,4 +373,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-    main_menu_user_input()
