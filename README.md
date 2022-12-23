@@ -33,6 +33,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
     - [Bugs Fixed](#bugs-fixed)
     - [Bugs Unfixed](#bugs-unfixed)
   - [Deployment](#deployment)
+    - [Clone Repository](#clone-repository)
 
 ## Objective
 
@@ -279,10 +280,32 @@ A number of minor bugs were encountered during the development phase, and all bu
 
 ### Bugs Unfixed
 
-While developing the application, an API that determines the user's location is used. This API was able to find the user's location from the user's IP address and get location data. However, after the application was deployed to Heroku, Dublin always appeared as the current location. The reason the IP geolocation API always shows Dublin as the current location because the server is in Dublin. After researching about it for a long time and trying various methods, I emailed Matt, Senior Product Developer at Code Institute, who created the GitHub repo we use for this project, and in line with his reply, I removed this feature from the application because I knew that I could not solve this problem with my current programming knowledge.
+While developing the application, an API that determines the user's location is used. This API was able to find the user's location from the user's IP address and get location data. However, after the application was deployed to Heroku, Dublin always appeared as the current location. The reason the IP geolocation API always shows Dublin as the current location because the Heroku server is in Dublin. After researching about it for a long time and trying various methods, I emailed Matt, Senior Product Developer at Code Institute, who created the GitHub repo we use for this project, and in line with his reply, I removed this feature from the application because I knew that I could not solve this problem with my current programming knowledge.
 
 [Back to top](<#contents>)
 
 
 ## Deployment
 
+### Clone Repository
+
+The project started to be developed by cloning the mock terminal repository provided by the Code Institute. The cloning phase of the project is as follows:
+
+- Go to the[GitHub repository](https://github.com/Code-Institute-Org/python-essentials-template) to be cloned. Click the 'Use this template' text and and then click 'Create a new repository' in the dropdown menu that opens.
+
+    ![clone-image](assets/deployment-images/clone-01.png)
+
+- The following image will open on a new page. After specifying the repository name, you can create the repository without writing a description. The new repository will be created automatically.
+
+    ![clone-image](assets/deployment-images/new-repo.png)
+
+- Then, if you want, you can open with the GitPod or clone it to your computer and work on locally. Since I am running locally, I will explain how I cloned it to the computer. As in the first step, we press the 'Code' button, open the dropdown menu and copy the link indicated by the arrow.
+
+    ![clone-image](assets/deployment-images/clone-02.png)
+
+- Then, we open the terminal application we use from the computer and clone the repository to our computer with the 'git clone -link to be cloned-' command. Then you can develope your work using the source-code editor of your choice.
+
+    ![clone-image](assets/deployment-images/clone-03.png)
+
+
+    ![clone-image](assets/deployment-images/clone-04.png)
