@@ -26,6 +26,8 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Future Features](#future-features)
   - [Technologies Used](#technologies-used)
   - [Python Libraries](#python-libraries)
+  - [Testing](#testing)
+    - [PEP8 Validation](#pep8-validation)
 
 ## Objective
 
@@ -215,3 +217,43 @@ The following Python libraries were used in the development of the project.
 - [json](https://docs.python.org/3/library/json.html) - Used to convert file object to JSON object.
 - [datetime](https://docs.python.org/3/library/datetime.html) - Used to convert timestamp to human-readable/formatted string.
 - [gzip](https://docs.python.org/3/library/gzip.html) - Used to decompress gzip file.
+
+[Back to top](<#contents>)
+
+## Testing
+
+### PEP8 Validation
+
+Validation tests were performed using the [CI Python Linter](https://pep8ci.herokuapp.com/) provided by the Code Institute. Errors that emerged as a result of the tests have been corrected and screenshots of the error free testing have been taken. 
+
+<details><summary>run.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/run.py-validation.png)
+</details><br/>
+
+<details><summary>main.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/main.py-validation.png)
+</details><br/>
+
+<details><summary>print.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/print.py-validation.png)
+</details><br/>
+
+<details><summary>cities.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/cities.py-validation.png)
+</details><br/>
+
+<details><summary>api_call.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/api_call.py-validation.png)
+</details><br/>
+
+<details><summary>weather.py Testing Screenshot</summary>
+
+![flowchart](assets/pep8-validation-images/weather.py-validation.png)
+</details><br/>
+
+[Back to top](<#contents>)
