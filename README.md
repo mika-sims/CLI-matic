@@ -25,6 +25,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
     - [Exit](#exit)
   - [Future Features](#future-features)
   - [Technologies Used](#technologies-used)
+  - [Python Libraries](#python-libraries)
 
 ## Objective
 
@@ -198,3 +199,19 @@ This is the screen where the program is terminated. On this screen, the user is 
 - [GitHub](https://github.com/) - Used to host the project's files and folders.
 - [Heroku](https://www.heroku.com/) - Used to deploy the project
 - [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - Used to make flowchart of the application.
+
+[Back to top](<#contents>)
+
+## Python Libraries
+
+The following Python libraries were used in the development of the project.
+
+- [requests](https://requests.readthedocs.io/en/latest/) - Used to request data.
+- [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - Used to create ASCII texts.
+- [termcolor](https://pypi.org/project/termcolor/) - Used to color text.
+- [rich](https://rich.readthedocs.io/en/stable/introduction.html#:~:text=Rich%20is%20a%20Python%20library,in%20a%20more%20readable%20way.) - Used to display weather forecasts in a table.
+- [country-converter](https://pypi.org/project/country-converter/0.3.1/) - Used to convert country codes into names.
+- [os](https://docs.python.org/3/library/os.html) - Used to provide a way to use OS dependent functionality (e.g; cleaning the terminal screen).
+- [json](https://docs.python.org/3/library/json.html) - Used to convert file object to JSON object.
+- [datetime](https://docs.python.org/3/library/datetime.html) - Used to convert timestamp to human-readable/formatted string.
+- [gzip](https://docs.python.org/3/library/gzip.html) - Used to decompress gzip file.
