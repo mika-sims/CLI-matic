@@ -23,6 +23,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
     - [Current Weather Forecast](#current-weather-forecast)
     - [Daily Weather Forecasts at 3-hour Intervals](#daily-weather-forecasts-at-3-hour-intervals)
     - [Exit](#exit)
+  - [Future Features](#future-features)
 
 ## Objective
 
@@ -172,5 +173,16 @@ This is the screen where the program is terminated. On this screen, the user is 
 
 ![flowchart](assets/images/exit.png)
 </details><br/>
+
+[Back to top](<#contents>)
+
+## Future Features
+
+
+- It will be an effective and useful option to determine the location of the user using the application and quickly show the weather forecasts for the location of the user.
+
+- The application uses the free option of OWM. Therefore, a limited number of options are offered. Offering more comprehensive weather forecasts will increase user diversity.
+
+- Showing images/emojis according to the weather conditions on the screen where the weather forecasts are displayed can make the application more attractive.
 
 [Back to top](<#contents>)
