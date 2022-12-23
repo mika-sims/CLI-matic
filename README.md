@@ -10,6 +10,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Contents](#contents)
   - [Objective](#objective)
   - [User Experience](#user-experience)
+  - [Data Model](#data-model)
 
 ## Objective
 
@@ -30,3 +31,24 @@ Here are some user experience criteria that were considered while developing the
 - As a user, I don't want to enter too many inputs to use the app.
 
 The application has been developed considering the above criteria.
+
+## Data Model
+
+CLI-matic requests all data from the Open Weather Map service provider. Data requests are made in 3 different ways.
+
+- Request for gzip file with city names
+- Requesting city coordinates with the Geolocation API
+- Requesting current weather data and 3 hourly daily weather data with the OWM API
+
+There is no need to make an API call to request data with city names. In order to receive this data, an HTTPS request was made with the Python request library. Since the requested data is in gzip format, the data was first saved as a gzip file. Then, with the 'with' statement and open() function, the city name was taken from the data and appended to the city list variable. The city name entered by the user is checked from this list and its validity is determined.
+
+After the city name is validated, the name of the city is passed to the URL of the Geocoding API and the data about this city is requested with an API call. The latitude and longitude of the city were taken from the requested data and assigned to the latitude and longitude variables globally. Since the latitude and longitude fetched after the Geocoding API call, this data will be used to request weather forecast data and these variables will be called from another function, so the variables are globalized.
+
+Finally, the fetched latitude and longitude data are passed to the URL that will be used in the API call from which weather forecast data will be requested. The data fetched from weather forecast API call is filtered with a very simple 'Weather' class, and the data to be displayed is presented in a table using the rich library.
+
+Below is a simple flowchart showing the data flow.
+
+<details><summary><b>CLI-matic Flowchart</b></summary>
+
+![flowchart](assets/images/flowchart.drawio.png)
+</details><br />
