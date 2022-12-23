@@ -14,6 +14,15 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Design](#design)
     - [ASCII Art](#ascii-art)
     - [Colors](#colors)
+  - [Existing Features](#existing-features)
+    - [Home screen](#home-screen)
+    - [Main Menu](#main-menu)
+    - [Forecast Menu](#forecast-menu)
+    - [City Entry](#city-entry)
+    - [Select City](#select-city)
+    - [Current Weather Forecast](#current-weather-forecast)
+    - [Daily Weather Forecasts at 3-hour Intervals](#daily-weather-forecasts-at-3-hour-intervals)
+    - [Exit](#exit)
 
 ## Objective
 
@@ -65,6 +74,7 @@ Below is a simple flowchart showing the data flow.
 ## Design
 
 Since this is a command line tool, what can be done in terms of design is very limited. Therefore, ASCII characters were created and the text content was colored.
+
 ### ASCII Art
 
 The ASCII characters seen on the screens at the beginning of the application and after the program is exited are created using the [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) library.
@@ -72,3 +82,95 @@ The ASCII characters seen on the screens at the beginning of the application and
 ### Colors
 
 The [termcolor](https://pypi.org/project/termcolor/) library was used to color the contents.
+
+[Back to top](<#contents>)
+
+## Existing Features
+
+### Home screen
+
+It is the first screen that the user sees when the application is opened. On this screen, the name of the application is printed as a banner with ASCII characters and the user is asked to press ENTER to continue.
+
+<details><summary>Home Screen Screenshot</summary>
+
+![flowchart](assets/images/banner.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Main Menu
+
+On this screen, the user is greeted and a brief information about the application is given. In addition, the user is presented with options for navigation.
+
+<details><summary>Main Menu Screenshot</summary>
+
+![flowchart](assets/images/greeting_and_main_menu.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Forecast Menu
+
+On this screen, the user is presented with 3 different options. Two of them are what type of weather forecast the user wants to display, and the last one is whether the user wants to return to the main menu.
+
+<details><summary>Forecast Menu Screenshot</summary>
+
+![flowchart](assets/images/forecast_type_menu.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### City Entry
+
+On this screen, the user is asked to enter the name of the city for which the user wants to see the weather forecasts.
+
+<details><summary>City Entry Screenshot</summary>
+
+![flowchart](assets/images/enter_city_name_section.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Select City
+
+More than 1 result can be fetched for the desired city name. (for instance, London in the UK and London in the US). In such a case, the user is asked which city the user wants data to be displayed. The data is displayed in line with the answer given by the user.
+
+<details><summary>Select City Screenshot</summary>
+
+![flowchart](assets/images/city_list_options.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Current Weather Forecast
+
+On this screen, the current weather forecasts for the asked city are displayed in a table. Below the table, 3 different navigation options are presented to the user. According to the user's selection, the relevant screen is returned.
+
+<details><summary>Current Weather Forecast Screenshot</summary>
+
+![flowchart](assets/images/current_weather_table.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Daily Weather Forecasts at 3-hour Intervals
+
+On this screen, daily weather forecasts are displayed at 3-hour intervals. As in the current weather forecasts screen, 3 different navigation options are presented to the user here, too.
+
+<details><summary>Daily Weather Forecasts at 3-hour Intervals Screenshot</summary>
+
+![flowchart](assets/images/3_hour_step_forecast_table.png)
+</details><br/>
+
+[Back to top](<#contents>)
+
+### Exit
+
+This is the screen where the program is terminated. On this screen, the user is greeted and given the necessary information to re-run the application.
+
+<details><summary>Exit Screenshot</summary>
+
+![flowchart](assets/images/exit.png)
+</details><br/>
+
+[Back to top](<#contents>)
