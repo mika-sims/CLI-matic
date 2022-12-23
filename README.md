@@ -1,31 +1,32 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# CLI-matic
 
-Welcome USER_NAME,
+![Banner](assets/images/banner.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+CLI-matic is a Python command line tool for displaying weather forecasts. It requests data by making an API call to the [Open Weather Map](https://openweathermap.org/api) service provider using Python's [requests](https://requests.readthedocs.io/en/latest/) library. The interface is very simple. The user is navigated by specific and simple instructions. Weather forecasts are also displayed in a table using Python's [rich](https://rich.readthedocs.io/en/stable/introduction.html#:~:text=Rich%20is%20a%20Python%20library,in%20a%20more%20readable%20way.) library.
 
-## Reminders
+## Contents
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+- [CLI-matic](#cli-matic)
+  - [Contents](#contents)
+  - [Objective](#objective)
+  - [User Experience](#user-experience)
 
-## Creating the Heroku app
+## Objective
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+The primary goal of the project is to develop a simple mock terminal application using the Python programming language. In addition, one of the most important purposes of the application is to request data from service providers using API and to display this data on the screen in a format that the user can read.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+You can view the live site here - [CLI-matic](https://cli-matic.herokuapp.com/)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## User Experience
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+The repository used to develop the application is a Node.js mock terminal application prepared by Code Institute. Since this project was developed as part of the Code Institute education, no changes were necessary to the appearance of the application in the browser. But to make the terminal look a little more user friendly, some Python libraries/modules are used for coloring texts, creating tables and presenting content.
 
-Connect your GitHub repository and deploy as normal.
+Here are some user experience criteria that were considered while developing the application:
 
-## Constraints
+- As a user, I would like to see a simple interface.
+- As a user, I don't want to read too much content.
+- As a user, I would like to see the weather forecast of the city I am looking for in a proper format.
+- As a user, I would like to see clear navigation.
+- As a user, I don't want to enter too many inputs to use the app.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+The application has been developed considering the above criteria.
