@@ -314,6 +314,8 @@ The project started to be developed by cloning the mock terminal repository prov
 
     ![clone-image](assets/deployment-images/clone-04.png)
 
+[Back to top](<#contents>)
+
 ### Heroku Deployment
 
 - After the project is completed, we open the Heroku dashboard and create a new app by pressing the 'New' button in the upper right corner.
@@ -347,6 +349,7 @@ The project started to be developed by cloning the mock terminal repository prov
 
     ![clone-image](assets/deployment-images/heroku-9.png)
 
+[Back to top](<#contents>)
 ## Credits
 
 ### Code
@@ -354,6 +357,8 @@ The project started to be developed by cloning the mock terminal repository prov
 - While researching how I can use the Python class in the API call, a content I came across on StackOverflow allowed me to create the Weather class in the weather.py file. I can't share the link here because I couldn't find the link that I didn't record because of my carelessness at that time.
 
 - While browsing the projects on the Student Projects page of Code Institute, I saw that [Fiona Tracey](https://github.com/Fiona-T) used pyfiglet to create ASCII text and termcolor to color the text in her project. That's why I decided to use these libraries.
+
+[Back to top](<#contents>)
 
 ### Acknowledgments
 
@@ -364,3 +369,5 @@ The project started to be developed by cloning the mock terminal repository prov
 - Thanks to the Code Institute slack community
 
 - Thanks to everyone at Code Institute for their help and support.
+
+[Back to top](<#contents>)
