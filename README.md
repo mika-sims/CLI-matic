@@ -28,6 +28,10 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Python Libraries](#python-libraries)
   - [Testing](#testing)
     - [PEP8 Validation](#pep8-validation)
+    - [Manual Testing](#manual-testing)
+  - [Bugs](#bugs)
+    - [Bugs Fixed](#bugs-fixed)
+    - [Bugs Unfixed](#bugs-unfixed)
 
 ## Objective
 
@@ -255,5 +259,25 @@ Validation tests were performed using the [CI Python Linter](https://pep8ci.hero
 
 ![flowchart](assets/pep8-validation-images/weather.py-validation.png)
 </details><br/>
+
+[Back to top](<#contents>)
+
+### Manual Testing
+
+Based on the data model shown in the flowchart, manual tests were carried out with different inputs. Invalid/valid inputs were tried for validation tests and all validation tests were successful.
+
+[Back to top](<#contents>)
+
+## Bugs
+
+### Bugs Fixed
+
+A number of minor bugs were encountered during the development phase, and all bugs have been fixed. These bugs were often caused by incorrect statement usage or carelessly written validation code for user input. A single major bug was found to be reported here, which caused the content of the app to change. Details on this are in the Bugs Unfixed section.
+
+[Back to top](<#contents>)
+
+### Bugs Unfixed
+
+While developing the application, an API that determines the user's location is used. This API was able to find the user's location from the user's IP address and get location data. However, after the application was deployed to Heroku, Dublin always appeared as the current location. The reason the IP geolocation API always shows Dublin as the current location because the server is in Dublin. After researching about it for a long time and trying various methods, I emailed Matt, Senior Product Developer at Code Institute, who created the GitHub repo we use for this project, and in line with his reply, I removed this feature from the application because I knew that I could not solve this problem with my current programming knowledge.
 
 [Back to top](<#contents>)
