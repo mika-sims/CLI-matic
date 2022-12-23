@@ -32,6 +32,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Bugs](#bugs)
     - [Bugs Fixed](#bugs-fixed)
     - [Bugs Unfixed](#bugs-unfixed)
+  - [Deployment](#deployment)
 
 ## Objective
 
@@ -281,3 +282,7 @@ A number of minor bugs were encountered during the development phase, and all bu
 While developing the application, an API that determines the user's location is used. This API was able to find the user's location from the user's IP address and get location data. However, after the application was deployed to Heroku, Dublin always appeared as the current location. The reason the IP geolocation API always shows Dublin as the current location because the server is in Dublin. After researching about it for a long time and trying various methods, I emailed Matt, Senior Product Developer at Code Institute, who created the GitHub repo we use for this project, and in line with his reply, I removed this feature from the application because I knew that I could not solve this problem with my current programming knowledge.
 
 [Back to top](<#contents>)
+
+
+## Deployment
+
