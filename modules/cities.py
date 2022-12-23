@@ -10,6 +10,7 @@ import json
 URL = "http://bulk.openweathermap.org/sample/city.list.json.gz"
 CITY_LIST_GZ = "city.list.json.gz"
 
+
 def download_cities_file():
     """
     Downloads gzip file with all cities in it
@@ -38,8 +39,8 @@ def cities_list():
 
     Returns:
         str: Target city
-    """    
-    
+    """
+
     download_cities_file()
     all_cities = []
 

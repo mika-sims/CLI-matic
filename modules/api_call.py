@@ -12,7 +12,7 @@ def api_call(url):
 
     Returns:
         object: JSON object
-    """    
+    """
     try:
         # Returns a JSON object of the result
         response = requests.get(url)

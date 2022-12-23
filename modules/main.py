@@ -30,7 +30,7 @@ console = Console()
 CITY_LIST = cities_list()
 
 # Reads creds file and asigns api keys to variables
-with open("creds.json","r") as credentials:
+with open("creds.json", "r") as credentials:
     api_keys = json.load(credentials)
     API_KEY = api_keys["api_key"]
 
@@ -45,7 +45,7 @@ def main_menu_user_input():
     while True:
         print()
         user_input = input("".center(35))
-        if user_input not in ["1","2"]:
+        if user_input not in ["1", "2"]:
             print()
             clear()
             blank_lines()
@@ -57,7 +57,7 @@ def main_menu_user_input():
     if user_input == "1":
         forecast_menu()
         forecast_menu_user_input()
-        
+
     if user_input == "2":
         exit()
 
@@ -125,7 +125,7 @@ def set_geolocation_url(target_location):
 
     Args:
         target_location (int): The return value of the
-                                get_target_location function 
+                            get_target_location function
     """
 
     city = target_location
@@ -142,7 +142,7 @@ def geolocation_data(url):
     Args:
         url (str): URL to get data
     """
-    
+
     data = api_call(url)
     if len(data) > 1:
         clear()
@@ -158,7 +158,7 @@ def geolocation_data(url):
                 -Enter {str(i + 1)} for: {city_name}, {country}"
         print(options)
         print()
-        
+
         # Validate the user input
         while True:
             dict_index = input("".center(35))
@@ -189,11 +189,11 @@ def current_weather_data(latitude, longitude):
         latitude (float): Latitude of the city to get the weather forecast
         longitude (float): Longitude of the city to get the weather forecast
     """
-    
+
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
     weather_url = base_url + "lat=" + str(latitude) + "&lon=" + \
-                str(longitude) + "&appid=" + API_KEY + "&units=metric"
-    
+        str(longitude) + "&appid=" + API_KEY + "&units=metric"
+
     data = api_call(weather_url)
     display_current_weather(data)
 
@@ -206,14 +206,15 @@ def hourly_weather_forecast_data(latitude, longitude):
         latitude (float): Latitude of the city to get the weather forecast
         longitude (float): Longitude of the city to get the weather forecast
     """
-    
+
     base_url = "https://api.openweathermap.org/data/2.5/forecast?"
     forecast_url = base_url + "lat=" + str(latitude) + "&lon=" + \
-                str(longitude) + "&cnt=8&appid=" + API_KEY + "&units=metric"
-    
+        str(longitude) + "&cnt=8&appid=" + API_KEY + "&units=metric"
+
     data = api_call(forecast_url)
     display_hourly_weather_forecast(data)
-    
+
+
 def display_current_weather(data):
     """
     Displays the current weather forecast in table format
@@ -221,13 +222,14 @@ def display_current_weather(data):
     Args:
         data (list): Nested JSON object
     """
-    
+
     # Call Weather object
     current_weather_obj = Weather(data)
-    
+
     country = coco.convert(names=current_weather_obj.sys.country, to="name")
-    
-    day = datetime.utcfromtimestamp(current_weather_obj.dt).strftime("%a %d %b")
+
+    day = \
+        datetime.utcfromtimestamp(current_weather_obj.dt).strftime("%a %d %b")
     time = datetime.utcfromtimestamp(current_weather_obj.dt).strftime("%H:%M")
     temperature = current_weather_obj.main.temp
     feels_like = current_weather_obj.main.feels_like
@@ -243,7 +245,7 @@ def display_current_weather(data):
         header_style="bold blue",
         title=f"\n{location}, {country} current weather forecast for {day}",
     )
-    
+
     table.add_column("Time", justify="center")
     table.add_column("Temperature", justify="center")
     table.add_column("Feels like", justify="center")
@@ -269,13 +271,14 @@ def display_current_weather(data):
     print()
     navigation_menu()
 
+
 def display_hourly_weather_forecast(data):
     """
     Prints the forecast in 3-hour intervals
     """
     # Call Weather object
     weather_obj = Weather(data)
-    
+
     country = coco.convert(names=weather_obj.city.country, to="name")
 
     times = ""
@@ -285,7 +288,7 @@ def display_hourly_weather_forecast(data):
     humidities = ""
     descriptions = ""
     city = weather_obj.city.name
-    
+
     weather_obj_list = weather_obj.list
     for i in range(len(weather_obj_list)):
 
@@ -343,7 +346,7 @@ def navigation_menu():
     yellow_text("Type 1 to search for another city.")
     yellow_text("Type 2 to restart the app.")
     yellow_text("Type 3 to exit the app")
-    
+
     while True:
         print()
         user_input = input("".center(35))
@@ -368,6 +371,3 @@ def navigation_menu():
 def run():
     banner()
     main_menu_user_input()
-
-if __name__ == '__main__':
-    run()

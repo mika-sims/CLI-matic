@@ -7,6 +7,7 @@ import pyfiglet
 # Import colored modul from termcolor for colored output
 from termcolor import colored
 
+
 def banner():
     """
     Prints application's banner.
@@ -32,6 +33,7 @@ def greeting():
     yellow_text("for over 200,000 cities")
     print()
 
+
 def main_menu():
     """
     Displays the main menu to the user.
@@ -41,6 +43,7 @@ def main_menu():
     print()
     yellow_text("-Type 1 to search by city name.")
     yellow_text("-Type 2 to exit the app")
+
 
 def forecast_menu():
     """
@@ -64,7 +67,7 @@ def exit():
     print()
     green_text("Press the 'RUN PROGRAM' button to restart the app.")
     quit()
-    
+
 
 def clear():
     """
@@ -72,6 +75,7 @@ def clear():
     """
 
     os.system("cls" if os.name == "nt" else "clear")
+
 
 def blank_lines():
     """
@@ -94,6 +98,7 @@ def warning_text(text):
     """
     print(colored(text, "red").center(80))
 
+
 def green_text(text):
     """
     Prints green text
@@ -103,6 +108,7 @@ def green_text(text):
     """
     print(colored(text, "green").center(80))
 
+
 def yellow_text(text):
     """
     Prints yellow text
@@ -111,6 +117,7 @@ def yellow_text(text):
         text (str): Text to be displayed
     """
     print(colored(text, "yellow").center(80))
+
 
 def white_text(text):
     """
