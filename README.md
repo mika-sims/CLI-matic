@@ -35,6 +35,9 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Deployment](#deployment)
     - [Clone Repository](#clone-repository)
     - [Heroku Deployment](#heroku-deployment)
+  - [Credits](#credits)
+    - [Code](#code)
+    - [Acknowledgments](#acknowledgments)
 
 ## Objective
 
@@ -343,3 +346,21 @@ The project started to be developed by cloning the mock terminal repository prov
 - After this point, we go to the 'Deploy' section of the menu and press the 'Deploy Branch' button and deploy our project.
 
     ![clone-image](assets/deployment-images/heroku-9.png)
+
+## Credits
+
+### Code
+
+- While researching how I can use the Python class in the API call, a content I came across on StackOverflow allowed me to create the Weather class in the weather.py file. I can't share the link here because I couldn't find the link that I didn't record because of my carelessness at that time.
+
+- While browsing the projects on the Student Projects page of Code Institute, I saw that [Fiona Tracey](https://github.com/Fiona-T) used pyfiglet to create ASCII text and termcolor to color the text in her project. That's why I decided to use these libraries.
+
+### Acknowledgments
+
+- Thanks to Code Institute for the repository provided to us so that we can create the project,
+
+- Thanks to my mentor, Precious Ijege, whose comments made me develop this project in a more convenient way,
+
+- Thanks to the Code Institute slack community
+
+- Thanks to everyone at Code Institute for their help and support.
