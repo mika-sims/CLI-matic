@@ -34,6 +34,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
     - [Bugs Unfixed](#bugs-unfixed)
   - [Deployment](#deployment)
     - [Clone Repository](#clone-repository)
+    - [Heroku Deployment](#heroku-deployment)
 
 ## Objective
 
@@ -309,3 +310,36 @@ The project started to be developed by cloning the mock terminal repository prov
 
 
     ![clone-image](assets/deployment-images/clone-04.png)
+
+### Heroku Deployment
+
+- After the project is completed, we open the Heroku dashboard and create a new app by pressing the 'New' button in the upper right corner.
+
+    ![clone-image](assets/deployment-images/heroku-1.png)
+
+- Then we determine the name of the application and create our application.
+
+    ![clone-image](assets/deployment-images/heroku-2.png)
+
+- At this stage, the first thing we need to do is to connect Heroku and GitHub repository. When we click on the GitHub logo indicated by the arrow, we will be linked to our GitHub account. We connect with Heroku by typing the name of the repository.
+
+    ![clone-image](assets/deployment-images/heroku-3.png)
+
+
+    ![clone-image](assets/deployment-images/heroku-4.png)
+
+- Then we go to the 'Settings' section in the menu bar. Here, we first click on the 'Reveal Config Vars' button and add our credentials here, if any.
+
+    ![clone-image](assets/deployment-images/heroku-5.png)
+
+
+    ![clone-image](assets/deployment-images/heroku-6.png)
+
+- Then we click the 'Add buildpack' button and add the Node.js used while creating the application page and the Python we use in our application to the buildpack.
+
+    ![clone-image](assets/deployment-images/heroku-7.png)
+    ![clone-image](assets/deployment-images/heroku-8.png)
+
+- After this point, we go to the 'Deploy' section of the menu and press the 'Deploy Branch' button and deploy our project.
+
+    ![clone-image](assets/deployment-images/heroku-9.png)
