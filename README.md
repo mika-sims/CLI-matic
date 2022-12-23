@@ -11,12 +11,17 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
   - [Objective](#objective)
   - [User Experience](#user-experience)
   - [Data Model](#data-model)
+  - [Design](#design)
+    - [ASCII Art](#ascii-art)
+    - [Colors](#colors)
 
 ## Objective
 
 The primary goal of the project is to develop a simple mock terminal application using the Python programming language. In addition, one of the most important purposes of the application is to request data from service providers using API and to display this data on the screen in a format that the user can read.
 
 You can view the live site here - [CLI-matic](https://cli-matic.herokuapp.com/)
+
+[Back to top](<#contents>)
 
 ## User Experience
 
@@ -31,6 +36,8 @@ Here are some user experience criteria that were considered while developing the
 - As a user, I don't want to enter too many inputs to use the app.
 
 The application has been developed considering the above criteria.
+
+[Back to top](<#contents>)
 
 ## Data Model
 
@@ -48,7 +55,20 @@ Finally, the fetched latitude and longitude data are passed to the URL that will
 
 Below is a simple flowchart showing the data flow.
 
-<details><summary><b>CLI-matic Flowchart</b></summary>
+<details><summary>CLI-matic Flowchart</summary>
 
 ![flowchart](assets/images/flowchart.drawio.png)
-</details><br />
+</details>
+
+[Back to top](<#contents>)
+
+## Design
+
+Since this is a command line tool, what can be done in terms of design is very limited. Therefore, ASCII characters were created and the text content was colored.
+### ASCII Art
+
+The ASCII characters seen on the screens at the beginning of the application and after the program is exited are created using the [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) library.
+
+### Colors
+
+The [termcolor](https://pypi.org/project/termcolor/) library was used to color the contents.
