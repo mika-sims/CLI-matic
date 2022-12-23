@@ -24,6 +24,7 @@ CLI-matic is a Python command line tool for displaying weather forecasts. It req
     - [Daily Weather Forecasts at 3-hour Intervals](#daily-weather-forecasts-at-3-hour-intervals)
     - [Exit](#exit)
   - [Future Features](#future-features)
+  - [Technologies Used](#technologies-used)
 
 ## Objective
 
@@ -186,3 +187,14 @@ This is the screen where the program is terminated. On this screen, the user is 
 - Showing images/emojis according to the weather conditions on the screen where the weather forecasts are displayed can make the application more attractive.
 
 [Back to top](<#contents>)
+
+## Technologies Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML) - Used for structuring and presenting content on the website.
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - Used for styling the website.
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Used to provide the functionality of the application.
+- [VSCode](https://code.visualstudio.com/) - Used to create and edit the application.
+- [Git](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Used as version control system to track changes in development process.
+- [GitHub](https://github.com/) - Used to host the project's files and folders.
+- [Heroku](https://www.heroku.com/) - Used to deploy the project
+- [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - Used to make flowchart of the application.
